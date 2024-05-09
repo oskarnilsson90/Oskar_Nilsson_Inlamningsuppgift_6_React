@@ -1,0 +1,40 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 6rem;
+    min-height: 100vh;
+  }
+
+/* Mobile */
+@media (max-width: 700px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem 1rem;
+    min-height: 100vh;
+  }
+
+  .content {
+    order: 1; /* Flytta children (content) till toppen */
+  }
+
+  .navigation {
+    order: 2; /* Flytta Navigation till botten */
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 6rem;
+    min-height: 100vh;
+  }
+}
