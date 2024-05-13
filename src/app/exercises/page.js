@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import styles from "./page.module.css";
-import ApiGet from '@/Data/Api/ApiGet';
 
 
 // Component: ExercisesPage
@@ -11,7 +10,6 @@ export default function ExercisesPage() {
         <div className={styles.container}>
             <h1 className={styles.header}>Library of Exercises</h1>
             <Link href={"/exercises"}  className={styles.btn}><span>➕</span> Add New Exercise</Link>
-            <ApiGet />
         </div>
     );
 }
