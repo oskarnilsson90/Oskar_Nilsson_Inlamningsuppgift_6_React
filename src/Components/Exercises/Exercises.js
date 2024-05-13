@@ -33,17 +33,5 @@ export default function ExercisesList() {
                 </Link>
             ))}
         </div>
-    
-    
-    //<ul className={styles.todosList}>
-        //{todos.map((todo) => (
-            //<li key={todo.id} className={todo.done ? styles.done : ""}>
-                //<Link href={`/todos/${todo.id}`}>
-                    
-                    //{todo.title}
-                //</Link>
-            //</li>
-       // ))}
-    //</ul>);
     );
 }
