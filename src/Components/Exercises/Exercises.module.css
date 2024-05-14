@@ -53,6 +53,8 @@
 }
 
 .exerciseCard {
+    display: grid;
+    place-items: center;
     padding: 1rem 1.2rem;
     border-radius: var(--border-radius);
     background: rgba(var(--card-rgb), 0);
@@ -76,6 +78,11 @@
     font-size: 0.9rem;
     line-height: 1.5;
     text-wrap: balance;
+}
+
+.exerciseCard input,
+.exerciseCard textarea {
+    margin-bottom: 0.7rem;
 }
 
 .exerciseCard:hover {

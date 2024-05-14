@@ -4,7 +4,7 @@ const jsonHeaders = {
     "Content-Type": "application/json"
 };
 
-export async function createExercise(title) {
+export async function createExercise(formData) {
     const url = API_URL + "/api/Exercises";
 
     const response = await fetch(url, {
@@ -12,7 +12,7 @@ export async function createExercise(title) {
         headers: {
             ...jsonHeaders
         },
-        body: JSON.stringify({ title })
+        body: JSON.stringify({ formData })
     });
 
     return response.json();
@@ -38,7 +38,7 @@ export async function getExerciseById(id) {
     return response.json();
 }
 
-export async function updateExercise(id){
+export async function updateExercise(id, formData){
     const url = API_URL + "/api/Exercises/" + id;
 
     const response = await fetch(url, {
@@ -46,7 +46,7 @@ export async function updateExercise(id){
         headers: {
             ...jsonHeaders
         },
-        body: JSON.stringify(todo)
+        body: JSON.stringify(formData)
     });
 
     return response.ok;
