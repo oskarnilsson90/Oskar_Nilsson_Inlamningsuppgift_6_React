@@ -53,26 +53,47 @@ export default function CreateExerciseForm(){
     return (
         <form onChange={(e) => handleFormChange(setFormData, formData)(e)} onSubmit={handleFormSubmit} className={styles.exerciseCard}>
             <p className="error">{errorMessage}</p>
-            <label>Title</label>
-            <input type="text" placeholder="Title" value={formData.title} name="title" onChange={handleFormChange(setFormData, formData)} />
-            <label>Category</label>
-            <input type="text" placeholder="Category" value={formData.category} name="category" onChange={handleFormChange(setFormData, formData)} />
-            <label>Description</label>
-            <textarea placeholder="Description" value={formData.description} name="description" onChange={handleFormChange(setFormData, formData)} />
-            <label>Players Team 1</label>
-            <input type="number" placeholder="Players Team 1" value={formData.playersTeam1} name="playersTeam1" onChange={handleFormChange(setFormData, formData)} />
-            <label>Players Team 2</label>
-            <input type="number" placeholder="Players Team 2" value={formData.playersTeam2} name="playersTeam2" onChange={handleFormChange(setFormData, formData)} />
-            <label>Goal Keepers</label>
-            <input type="number" placeholder="Goal Keepers" value={formData.goalKeepers} name="goalKeepers" onChange={handleFormChange(setFormData, formData)} />
-            <label>Touch Line</label>
-            <input type="number" placeholder="Touch Line" value={formData.touchLine} name="touchLine" onChange={handleFormChange(setFormData, formData)} />
-            <label>Goal Line</label>
-            <input type="number" placeholder="Goal Line" value={formData.goalLine} name="goalLine" onChange={handleFormChange(setFormData, formData)} />
-            <label>Goals</label>
-            <input type="number" placeholder="Goals" value={formData.goals} name="goals" onChange={handleFormChange(setFormData, formData)} />
-            <label>Cones</label>
-            <input type="number" placeholder="Cones" value={formData.cones} name="cones" onChange={handleFormChange(setFormData, formData)} />
+            <label htmlFor="title">Title</label>
+            <input type="text" id="title" placeholder="Title" defaultValue={formData.title} name="title" onChange={handleFormChange(setFormData, formData)} />
+            
+            <label htmlFor="category">Category</label>
+            <select id="category" defaultValue={formData.category} name="category" onChange={handleFormChange(setFormData, formData)}>
+                <option value="">Choose a category</option>
+                <option value="Matches">Matches</option>
+                <option value="Attacking">Attacking</option>
+                <option value="Defending">Defending</option>
+                <option value="Possession">Possession</option>
+                <option value="Technique">Technique</option>
+                <option value="Passing">Passing</option>
+                <option value="Shooting">Shooting</option>
+                <option value="Goalkeeper">Goalkeeper</option>
+                <option value="Conditioning">Conditioning</option>
+            </select>
+
+            <label htmlFor="description">Description</label>
+            <textarea id="description" placeholder="Description" defaultValue={formData.description} name="description" onChange={handleFormChange(setFormData, formData)} />
+
+            <label htmlFor="playersTeam1">Players Team 1</label>
+            <input type="number" id="playersTeam1" placeholder="Players Team 1" defaultValue={formData.playersTeam1} name="playersTeam1" onChange={handleFormChange(setFormData, formData)} />
+
+            <label htmlFor="playersTeam2">Players Team 2</label>
+            <input type="number" id="playersTeam2" placeholder="Players Team 2" defaultValue={formData.playersTeam2} name="playersTeam2" onChange={handleFormChange(setFormData, formData)} />
+
+            <label htmlFor="goalKeepers">Goal Keepers</label>
+            <input type="number" id="goalKeepers" placeholder="Goal Keepers" defaultValue={formData.goalKeepers} name="goalKeepers" onChange={handleFormChange(setFormData, formData)} />
+
+            <label htmlFor="touchLine">Touch Line</label>
+            <input type="number" id="touchLine" placeholder="Touch Line" defaultValue={formData.touchLine} name="touchLine" onChange={handleFormChange(setFormData, formData)} />
+
+            <label htmlFor="goalLine">Goal Line</label>
+            <input type="number" id="goalLine" placeholder="Goal Line" defaultValue={formData.goalLine} name="goalLine" onChange={handleFormChange(setFormData, formData)} />
+
+            <label htmlFor="goals">Goals</label>
+            <input type="number" id="goals" placeholder="Goals" defaultValue={formData.goals} name="goals" onChange={handleFormChange(setFormData, formData)} />
+
+            <label htmlFor="cones">Cones</label>
+            <input type="number" id="cones" placeholder="Cones" defaultValue={formData.cones} name="cones" onChange={handleFormChange(setFormData, formData)} />
+    
             <button className={styles.btn} type="submit">Create</button>
         </form>
     );

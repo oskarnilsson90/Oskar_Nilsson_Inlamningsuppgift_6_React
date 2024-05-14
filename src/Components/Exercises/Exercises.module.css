@@ -81,6 +81,7 @@
 }
 
 .exerciseCard input,
+.exerciseCard select,
 .exerciseCard textarea {
     margin-bottom: 0.7rem;
 }
