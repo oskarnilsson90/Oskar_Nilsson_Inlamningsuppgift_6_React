@@ -12,7 +12,7 @@ export async function createExercise(formData) {
         headers: {
             ...jsonHeaders
         },
-        body: JSON.stringify({ formData })
+        body: JSON.stringify(formData)
     });
 
     return response.json();

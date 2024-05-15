@@ -3,7 +3,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import { deleteExercise, getExerciseById, updateExercise } from "@/utils/api";
+import { deleteExercise, getExerciseById } from "@/utils/api";
 import { useRouter } from "next/navigation";
 
 export default function ExercisePage({ params }) {
@@ -17,6 +17,14 @@ export default function ExercisePage({ params }) {
 
         setExercise(exercise);
     }
+
+      // Handle the remove button click
+  const handleRemoveButtonClick = () => {
+    const isConfirmed = window.confirm('Are you sure you want to remove this exercise?');
+    if (isConfirmed) {
+        deleteThis();
+    }
+  };
 
     const deleteThis = async () => {
         await deleteExercise(params.id);
@@ -47,7 +55,7 @@ export default function ExercisePage({ params }) {
                 <div className={styles.buttonsContainer}>
                     <Link href={`/trainings`} className={styles.btn}>Add</Link>
                     <Link href={`/exercises/${exercise.id}/edit`} className={styles.btn}>Edit</Link>
-                    <button className={styles.btn} type="button" onClick={deleteThis}>Delete</button>
+                    <button className={styles.btn} type="button" onClick={handleRemoveButtonClick}>Delete</button>
                 </div>
             </div>
         </div>

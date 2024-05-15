@@ -20,18 +20,20 @@ export default function ExercisesList() {
 
     const ImageUrl = '/pitch.png';
 
-    return (<div className={styles.exercisesGrid}>
-            {exercises.map(exercise => (
-                <Link href={`/exercises/${exercise.id}`} key={exercise.id} className={styles.exerciseCard}>
-                    <Image src={ImageUrl} alt="Exercise Logo" width={100} height={100} className={styles.exerciseImage} />
-                    <h2>{exercise.title}</h2>
-                    <p>{exercise.category}</p>
-                    <div className={styles.buttonsContainer}>
-                        <Link href={`trainings`} className={styles.btn}>Add</Link>
-                        <Link href={`/exercises/${exercise.id}`} className={styles.btn}>Edit</Link>
-                    </div>
-                </Link>
-            ))}
-        </div>
+    return (<>
+            <div className={styles.exercisesGrid}>
+                {exercises.map(exercise => (
+                    <Link href={`/exercises/${exercise.id}`} key={exercise.id} className={styles.exerciseCard}>
+                        <Image src={ImageUrl} alt="Exercise Logo" width={100} height={100} className={styles.exerciseImage} />
+                        <h2>{exercise.title}</h2>
+                        <p>{exercise.category}</p>
+                        <div className={styles.buttonsContainer}>
+                            <Link href={`trainings`} className={styles.btn}>Add</Link>
+                            <Link href={`/exercises/${exercise.id}`} className={styles.btn}>Edit</Link>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </>
     );
 }
