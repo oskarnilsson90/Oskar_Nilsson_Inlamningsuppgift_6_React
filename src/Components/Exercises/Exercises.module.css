@@ -8,6 +8,26 @@
     margin-bottom: 20px;
 }
 
+.searchBar {
+  display: inline-block;
+  margin: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  background: rgba(var(--card-rgb), 0);
+  border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  transition: background 200ms, border 200ms;
+}
+
+.searchBar span {
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.searchBar:hover {
+  background: rgba(var(--card-rgb), 0.1);
+  border: 1px solid rgba(var(--card-border-rgb), 0.5);
+}
+
 .btn {
     display: inline-block;
     margin: 1rem;
