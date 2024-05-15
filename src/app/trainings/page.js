@@ -27,7 +27,7 @@ export default function TrainingsPage(){
                     <p className={styles.description}>{training.description}</p>
                     <div className={styles.buttonsContainer}>
                         <button className={styles.btn}>Start</button>
-                        <button className={styles.btn}>Edit</button>
+                        <button className={styles.btn}>Info</button>
                     </div>
                 </div>
                 ))}

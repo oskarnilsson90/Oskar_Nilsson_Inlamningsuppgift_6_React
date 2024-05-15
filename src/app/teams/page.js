@@ -22,7 +22,7 @@ export default function TeamsPage(){
                 <div key={team.id} className={styles.teamCard}>
                     <Image src={team.imageUrl} alt={team.name} width={100} height={100} className={styles.teamImage} />
                     <h2>{team.name}</h2>
-                    <button className={styles.btn}>Edit</button>
+                    <button className={styles.btn}>Info</button>
                 </div>
                 ))}
             </div>
