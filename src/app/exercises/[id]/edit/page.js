@@ -69,7 +69,7 @@ export default function EditExerciseForm({ params }) {
 
         try {
             await updateExercise(params.id, formData);
-            router.push("/exercises");
+            router.push(`/exercises/${params.id}`);
         } catch (error) {
             setErrorMessage("Failed to update exercise.");
         }
