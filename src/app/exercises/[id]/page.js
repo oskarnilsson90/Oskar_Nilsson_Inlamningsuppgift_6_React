@@ -55,7 +55,7 @@ export default function ExercisePage({ params }) {
                 <div className={styles.buttonsContainer}>
                     <Link href={`/trainings`} className={styles.btn}>Add</Link>
                     <Link href={`/exercises/${exercise.id}/edit`} className={styles.btn}>Edit</Link>
-                    <button className={styles.btn} type="button" onClick={handleRemoveButtonClick}>Delete</button>
+                    <button className={styles.btnDelete} type="button" onClick={handleRemoveButtonClick}>Delete</button>
                 </div>
             </div>
         </div>

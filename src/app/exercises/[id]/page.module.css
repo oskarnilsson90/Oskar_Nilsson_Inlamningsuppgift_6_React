@@ -23,6 +23,21 @@
     transition: transform 200ms;
 }
 
+.btnDelete {
+  display: inline-block;
+  margin: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  background: rgba(var(--card-rgb), 0);
+  border: 1px solid rgba(var(--card-border-rgb), 0);
+  transition: background 200ms, border 200ms;
+}
+
+.btnDelete span {
+  display: inline-block;
+  transition: transform 200ms;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .btn:hover {
       background: rgba(var(--card-rgb), 0.1);
@@ -32,10 +47,23 @@
     .btn:hover span {
       transform: translateX(4px);
     }
+
+    .btnDelete:hover {
+      background: rgba(var(--card-rgb), 0.1);
+      border: 1px solid red;
+    }
+  
+    .btnDelete:hover span {
+      transform: translateX(4px);
+    }
 }
 
 @media (prefers-reduced-motion) {
     .btn:hover span {
+      transform: none;
+    }
+    
+    .btnDelete:hover span {
       transform: none;
     }
 }
