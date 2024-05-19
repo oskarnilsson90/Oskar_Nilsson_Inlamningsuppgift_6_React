@@ -8,6 +8,11 @@
     margin-bottom: 20px;
 }
 
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .btn {
     display: inline-block;
     margin: 1rem;
@@ -40,7 +45,3 @@
     }
 }
 
-.buttonsContainer {
-    display: flex;
-    justify-content: center;
-}

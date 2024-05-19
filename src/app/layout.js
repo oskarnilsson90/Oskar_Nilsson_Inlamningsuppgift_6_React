@@ -23,10 +23,8 @@ export default function RootLayout({ children }) {
 
           <Navigation className={styles.navigation} />
 
-          <div className={styles.content}>
-            {children}
-          </div>
-
+          {children}
+          
           <Footer />
 
         </main>

@@ -4,8 +4,8 @@ import Link from 'next/link';
 // Array of navigation links with their corresponding href, text, and description
 const LINKS = [
     { href: '/', text: 'Home', description: 'Go to home page'},
-    { href: '/teams', text: 'My Teams', description: 'Manage my teams'},
-    { href: '/trainings', text: 'My Trainings', description: 'Manage my training sessions'},
+    { href: '/teams', text: 'Teams', description: 'Manage my teams'},
+    { href: '/trainings', text: 'Trainings', description: 'Manage my training sessions'},
     { href: '/exercises', text: 'Exercises', description: 'Library of exercises'},
     { href: '/about', text: 'About Us', description: 'About PitchPro Planner and contact info'},
 ]

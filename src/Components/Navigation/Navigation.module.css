@@ -51,10 +51,6 @@
   
   /* Mobile */
   @media (max-width: 700px) {
-    .content {
-      padding: 4rem;
-    }
-  
     .grid {
       grid-template-columns: 1fr;
       margin-bottom: 1rem;
@@ -130,16 +126,6 @@
   @media (min-width: 701px) and (max-width: 1120px) {
     .grid {
       grid-template-columns: repeat(2, 50%);
-    }
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .vercelLogo {
-      filter: invert(1);
-    }
-  
-    .logo {
-      filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
     }
   }
   
