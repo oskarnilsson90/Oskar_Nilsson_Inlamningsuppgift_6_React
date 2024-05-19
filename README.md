@@ -24,7 +24,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Översikt
 
-Denna dokumentation beskriver en webbapplikation för hantering av övningar och träningar inom fotboll. Applikationen tillåter användare att skapa, redigera, visa och ta bort övningar samt lista tillgängliga övningar. Den är uppbyggd med hjälp av Next.js för frontend och en separat API-server för backend. Nedan följer en detaljerad beskrivning av komponenter, funktioner och tekniska detaljer.
+Denna dokumentation beskriver PichPro Planners webbapplikation för hantering av övningar och träningar inom fotboll. Applikationen tillåter användare att skapa, redigera, visa och ta bort övningar samt lista tillgängliga övningar. Den är uppbyggd med hjälp av Next.js för frontend och en separat API-server för backend. Nedan följer en detaljerad beskrivning av komponenter, funktioner och tekniska detaljer.
 
 ### Komponenter och Funktioner
 
@@ -34,7 +34,7 @@ Denna dokumentation beskriver en webbapplikation för hantering av övningar och
 
 - ExercisePage: En komponent för att visa detaljer om en enskild övning. Användaren kan också ta bort övningen från denna vy.
 
-- EditExerciseForm: En komponent för att redigera befintliga övningar. Användaren kan ändra övningsdetaljerna och uppdatera dem i databasen.
+- EditExerciseForm: En komponent för att redigera befintliga övningar. Användaren kan ändra övningens detaljer och uppdatera dem i databasen.
 
 - API-funktioner: Funktioner för att kommunicera med API-servern, inklusive att hämta, skapa, uppdatera och ta bort övningar.
 
@@ -43,7 +43,8 @@ Denna dokumentation beskriver en webbapplikation för hantering av övningar och
 - Next.js: Används för att bygga den responsiva frontend-applikationen med server-side rendering och klientnavigering.
 
 - React: Används för att skapa komponentbaserade användargränssnitt.
-API Kommunikation: Använder fetch API för att kommunicera med en separat backend-server som tillhandahåller CRUD-operationer för övningar.
+
+- API Kommunikation: Använder fetch API för att kommunicera med en separat backend-server som tillhandahåller CRUD-operationer för övningar.
 
 - Miljövariabler: Använder NEXT_PUBLIC_API_URL för att konfigurera URL till API-servern. Detta gör det enkelt att anpassa API-anrop för olika miljöer (t.ex. utveckling, produktion).
 
@@ -63,12 +64,8 @@ API Kommunikation: Använder fetch API för att kommunicera med en separat backe
 
 - Separation av ansvar: Separationen av frontend och backend genom Next.js och en separat API-server gör det möjligt att ändra och uppgradera varje del av systemet oberoende av varandra, vilket förbättrar skalbarheten och underhållbarheten.
 
-- Enkel konfiguration: Användningen av miljövariabler för konfiguration gör det enkelt att anpassa applikationen för olika miljöer och serverinställningar.
-
 ### Förbättringsmöjligheter
 
 - Optimering av databasåtkomst: Optimering av API-anropen och databasanvändningen kan förbättra prestanda och skalbarhet ytterligare, särskilt för stora datamängder eller hög belastning.
-
-- Implementering av cachelagring: Införandet av cachelagring kan minska belastningen på servern och förbättra prestanda genom att lagra vanliga data i minnet eller på disk för snabb åtkomst.
 
 - Automatiserade tester: Implementering av enhets-, integrations- och slutanvändartester kan säkerställa att koden fungerar korrekt och förhindra oavsiktliga buggar och fel vid framtida ändringar.
