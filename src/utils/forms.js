@@ -1,4 +1,4 @@
-export function handleFormChange(setFormData, formData) {
+export function handleFormChange(setFormData, formData, resetError) {
     return (event) => {
         const fieldName = event.target.name;
         let fieldValue = event.target.value;
@@ -9,5 +9,9 @@ export function handleFormChange(setFormData, formData) {
         }
 
         setFormData({ ...formData, [fieldName]: fieldValue });
+
+        if (resetError) {
+            resetError();
+        }
     };
 }

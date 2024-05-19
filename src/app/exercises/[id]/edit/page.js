@@ -67,6 +67,24 @@ export default function EditExerciseForm({ params }) {
             }
         }
 
+        const validations = [
+            { field: "playersTeam1", min: 0, max: 50 },
+            { field: "playersTeam2", min: 0, max: 50 },
+            { field: "goalKeepers", min: 0, max: 10 },
+            { field: "touchLine", min: 0, max: 200 },
+            { field: "goalLine", min: 0, max: 150 },
+            { field: "goals", min: 0, max: 10 },
+            { field: "cones", min: 0, max: 100 }
+        ];
+
+        for (const validation of validations) {
+            const value = formData[validation.field];
+            if (value < validation.min || value > validation.max) {
+                setErrorMessage(`${validation.field} must be between ${validation.min} and ${validation.max}.`);
+                return;
+            }
+        }
+
         try {
             await updateExercise(params.id, formData);
             router.push(`/exercises/${params.id}`);
@@ -79,12 +97,12 @@ export default function EditExerciseForm({ params }) {
         <div className={styles.container}>
             <h1 className={styles.header}>Edit Exercise</h1>
             <form onChange={handleFormChange(setFormData, formData)} onSubmit={handleFormSubmit} className={styles.exerciseCard}>
-                <p className="error">{errorMessage}</p>
+                {errorMessage && <p className={styles.error}>{errorMessage}</p>}
                 <label htmlFor="title">Title</label>
-                <input type="text" id="title" placeholder="Title" value={formData.title} name="title" onChange={handleFormChange(setFormData, formData)}/>
+                <input type="text" id="title" placeholder="Title" value={formData.title} name="title" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
                 
                 <label htmlFor="category">Category</label>
-                <select id="category" value={formData.category} name="category" onChange={handleFormChange(setFormData, formData)}>
+                <select id="category" value={formData.category} name="category" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}>
                     <option value="">Choose a category</option>
                     <option value="Matches">Matches</option>
                     <option value="Attacking">Attacking</option>
@@ -98,28 +116,28 @@ export default function EditExerciseForm({ params }) {
                 </select>
 
                 <label htmlFor="description">Description</label>
-                <textarea id="description" placeholder="Description" value={formData.description} name="description" onChange={handleFormChange(setFormData, formData)}/>
+                <textarea id="description" placeholder="Description" value={formData.description} name="description" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
 
                 <label htmlFor="playersTeam1">Players Team 1</label>
-                <input type="number" id="playersTeam1" placeholder="Players Team 1" value={formData.playersTeam1} name="playersTeam1" onChange={handleFormChange(setFormData, formData)}/>
+                <input type="number" id="playersTeam1" placeholder="Players Team 1" value={formData.playersTeam1} name="playersTeam1" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
 
                 <label htmlFor="playersTeam2">Players Team 2</label>
-                <input type="number" id="playersTeam2" placeholder="Players Team 2" value={formData.playersTeam2} name="playersTeam2" onChange={handleFormChange(setFormData, formData)}/>
+                <input type="number" id="playersTeam2" placeholder="Players Team 2" value={formData.playersTeam2} name="playersTeam2" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
 
                 <label htmlFor="goalKeepers">Goal Keepers</label>
-                <input type="number" id="goalKeepers" placeholder="Goal Keepers" value={formData.goalKeepers} name="goalKeepers" onChange={handleFormChange(setFormData, formData)}/>
+                <input type="number" id="goalKeepers" placeholder="Goal Keepers" value={formData.goalKeepers} name="goalKeepers" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
 
                 <label htmlFor="touchLine">Touch Line</label>
-                <input type="number" id="touchLine" placeholder="Touch Line" value={formData.touchLine} name="touchLine" onChange={handleFormChange(setFormData, formData)}/>
+                <input type="number" id="touchLine" placeholder="Touch Line" value={formData.touchLine} name="touchLine" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
 
                 <label htmlFor="goalLine">Goal Line</label>
-                <input type="number" id="goalLine" placeholder="Goal Line" value={formData.goalLine} name="goalLine" onChange={handleFormChange(setFormData, formData)}/>
+                <input type="number" id="goalLine" placeholder="Goal Line" value={formData.goalLine} name="goalLine" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
 
                 <label htmlFor="goals">Goals</label>
-                <input type="number" id="goals" placeholder="Goals" value={formData.goals} name="goals" onChange={handleFormChange(setFormData, formData)}/>
+                <input type="number" id="goals" placeholder="Goals" value={formData.goals} name="goals" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
 
                 <label htmlFor="cones">Cones</label>
-                <input type="number" id="cones" placeholder="Cones" value={formData.cones} name="cones" onChange={handleFormChange(setFormData, formData)}/>
+                <input type="number" id="cones" placeholder="Cones" value={formData.cones} name="cones" onChange={handleFormChange(setFormData, formData, () => setErrorMessage(""))}/>
         
                 <button className={styles.btn} type="submit">Update</button>
             </form>
