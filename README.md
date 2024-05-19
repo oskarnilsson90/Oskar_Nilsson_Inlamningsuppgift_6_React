@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Getting Started
 
 First, run the development server:
 
@@ -20,17 +20,55 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+# Dokumentation
 
-To learn more about Next.js, take a look at the following resources:
+## Översikt
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Denna dokumentation beskriver en webbapplikation för hantering av övningar och träningar inom fotboll. Applikationen tillåter användare att skapa, redigera, visa och ta bort övningar samt lista tillgängliga övningar. Den är uppbyggd med hjälp av Next.js för frontend och en separat API-server för backend. Nedan följer en detaljerad beskrivning av komponenter, funktioner och tekniska detaljer.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Komponenter och Funktioner
 
-## Deploy on Vercel
+- ExercisesList: En komponent som listar tillgängliga övningar. Användaren kan söka efter övningar och klicka på dem för att se detaljer eller lägga till dem i träningsscheman.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- CreateExerciseForm: En komponent för att skapa nya övningar. Användaren fyller i formuläret och skickar in för att lägga till en ny övning i databasen.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- ExercisePage: En komponent för att visa detaljer om en enskild övning. Användaren kan också ta bort övningen från denna vy.
+
+- EditExerciseForm: En komponent för att redigera befintliga övningar. Användaren kan ändra övningsdetaljerna och uppdatera dem i databasen.
+
+- API-funktioner: Funktioner för att kommunicera med API-servern, inklusive att hämta, skapa, uppdatera och ta bort övningar.
+
+### Tekniska Detaljer
+
+- Next.js: Används för att bygga den responsiva frontend-applikationen med server-side rendering och klientnavigering.
+
+- React: Används för att skapa komponentbaserade användargränssnitt.
+API Kommunikation: Använder fetch API för att kommunicera med en separat backend-server som tillhandahåller CRUD-operationer för övningar.
+
+- Miljövariabler: Använder NEXT_PUBLIC_API_URL för att konfigurera URL till API-servern. Detta gör det enkelt att anpassa API-anrop för olika miljöer (t.ex. utveckling, produktion).
+
+## Analys och Reflektion
+
+### Prestanda
+
+- Server-Side Rendering (SSR): Användningen av Next.js möjliggör SSR, vilket förbättrar prestanda och SEO genom att rendera sidor på servern innan de skickas till klienten.
+
+- Effektivitet i API-anrop: API-anropen är effektiva och asynkrona, vilket minskar blockering och förbättrar användarupplevelsen genom att snabbt hämta och uppdatera data.
+
+- Optimerad bildhantering: Användningen av Next.js Image-komponenten ger automatisk bildoptimering och lazy loading, vilket förbättrar sidans laddningstider och prestanda.
+
+### Underhållbarhet
+
+- Komponentbaserad arkitektur: Användningen av React-komponenter möjliggör återanvändning och modulär utveckling, vilket gör koden lättare att underhålla och förstå.
+
+- Separation av ansvar: Separationen av frontend och backend genom Next.js och en separat API-server gör det möjligt att ändra och uppgradera varje del av systemet oberoende av varandra, vilket förbättrar skalbarheten och underhållbarheten.
+
+- Enkel konfiguration: Användningen av miljövariabler för konfiguration gör det enkelt att anpassa applikationen för olika miljöer och serverinställningar.
+
+### Förbättringsmöjligheter
+
+- Optimering av databasåtkomst: Optimering av API-anropen och databasanvändningen kan förbättra prestanda och skalbarhet ytterligare, särskilt för stora datamängder eller hög belastning.
+
+- Implementering av cachelagring: Införandet av cachelagring kan minska belastningen på servern och förbättra prestanda genom att lagra vanliga data i minnet eller på disk för snabb åtkomst.
+
+- Automatiserade tester: Implementering av enhets-, integrations- och slutanvändartester kan säkerställa att koden fungerar korrekt och förhindra oavsiktliga buggar och fel vid framtida ändringar.
