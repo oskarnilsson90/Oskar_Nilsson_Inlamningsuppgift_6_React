@@ -6,10 +6,13 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "@/components/Exercises/Exercises.module.css";
 
+// Component: CreateExerciseForm
+// Description: Represents the form for creating a new exercise, including input fields for exercise details and error handling.
 export default function CreateExerciseForm(){
     
     const router = useRouter();
 
+    // State variables to manage form data and error messages
     const [formData, setFormData] = useState({
         title: "",
         category: "",
@@ -25,9 +28,11 @@ export default function CreateExerciseForm(){
 
     const [errorMessage, setErrorMessage] = useState("");
 
+    // Handle form submission
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         
+        // Check for empty fields
         for (const key in formData) {
             if (formData[key] === "") {
                 setErrorMessage("Please fill in all fields.");
@@ -35,6 +40,7 @@ export default function CreateExerciseForm(){
             }
         }
 
+        // Check for negative values in number fields
         for (const key in formData) {
             if (typeof formData[key] === "number" && formData[key] < 0) {
                 setErrorMessage("Please enter non-negative values for all number fields.");
@@ -42,6 +48,7 @@ export default function CreateExerciseForm(){
             }
         }
 
+        // Define validation rules for numerical fields
         const validations = [
             { field: "playersTeam1", min: 0, max: 50 },
             { field: "playersTeam2", min: 0, max: 50 },
@@ -52,6 +59,7 @@ export default function CreateExerciseForm(){
             { field: "cones", min: 0, max: 100 }
         ];
 
+        // Validate numerical fields against defined rules
         for (const validation of validations) {
             const value = formData[validation.field];
             if (value < validation.min || value > validation.max) {
@@ -61,7 +69,10 @@ export default function CreateExerciseForm(){
         }
     
         try {
+            // Create new exercise
             await createExercise(formData);
+
+            // Redirect to exercises page after successful creation
             router.push("/exercises");
         } catch (error) {
             setErrorMessage("Failed to create exercise.");
@@ -72,7 +83,7 @@ export default function CreateExerciseForm(){
     const clearErrorMessage = () => {
         setErrorMessage("");
     };
-    
+
     return (
         <form onChange={handleFormChange(setFormData, formData)} onSubmit={handleFormSubmit} className={styles.exerciseCard}>
             {errorMessage && <p className={styles.error}>{errorMessage}</p>}

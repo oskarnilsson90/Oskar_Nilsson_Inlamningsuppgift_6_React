@@ -6,31 +6,37 @@ import { useEffect, useState } from "react";
 import { deleteExercise, getExerciseById } from "@/utils/api";
 import { useRouter } from "next/navigation";
 
+// Component: ExercisePage
+// Description: Represents the page for displaying details of a specific exercise, with options to edit, delete, and navigate to related content.
 export default function ExercisePage({ params }) {
 
     const router = useRouter();
 
+    // State variable to hold exercise data
     const [exercise, setExercise] = useState({});
 
+    // Fetch exercise data by exercise ID
     const fetchExercise = async () => {
         const exercise = await getExerciseById(params.id);
 
         setExercise(exercise);
     }
 
-      // Handle the remove button click
-  const handleRemoveButtonClick = () => {
-    const isConfirmed = window.confirm('Are you sure you want to remove this exercise?');
-    if (isConfirmed) {
-        deleteThis();
-    }
-  };
+    // Handle the remove button click
+    const handleRemoveButtonClick = () => {
+        const isConfirmed = window.confirm('Are you sure you want to remove this exercise?');
+        if (isConfirmed) {
+            deleteThis();
+        }
+    };
 
+    // Delete the exercise
     const deleteThis = async () => {
         await deleteExercise(params.id);
         router.push("/exercises");
     }
 
+    // Fetch exercise data when component mounts
     useEffect(() => {
         fetchExercise();
     }, []);

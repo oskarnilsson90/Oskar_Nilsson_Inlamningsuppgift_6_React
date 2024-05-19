@@ -6,9 +6,12 @@ import { getExerciseById, updateExercise } from "@/utils/api";
 import styles from "@/components/Exercises/Exercises.module.css";
 import { handleFormChange } from "@/utils/forms";
 
+// Component: EditExerciseForm
+// Description: Represents the form for editing exercise details, including title, category, description, and various numerical attributes.
 export default function EditExerciseForm({ params }) {
     const router = useRouter();
 
+    // State variables to manage form data and error messages
     const [formData, setFormData] = useState({
         id: "",
         title: "",
@@ -25,6 +28,7 @@ export default function EditExerciseForm({ params }) {
 
     const [errorMessage, setErrorMessage] = useState("");
 
+    // Fetch exercise data based on the exercise ID provided in parameters
     useEffect(() => {
         const fetchExercise = async () => {
             try {
@@ -50,9 +54,11 @@ export default function EditExerciseForm({ params }) {
         fetchExercise();
     }, [params.id]);
 
+    // Handle form submission
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
+        // Validate form data
         for (const key in formData) {
             if (formData[key] === "") {
                 setErrorMessage("Please fill in all fields.");
@@ -86,7 +92,10 @@ export default function EditExerciseForm({ params }) {
         }
 
         try {
+            // Update exercise data
             await updateExercise(params.id, formData);
+
+            // Redirect to the exercise details page
             router.push(`/exercises/${params.id}`);
         } catch (error) {
             setErrorMessage("Failed to update exercise.");
